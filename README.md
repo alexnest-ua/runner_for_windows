@@ -1,6 +1,8 @@
 # Опис runner_for_windows
   
 можете запускати цей скрипт на увесь день та йти по своїм справам (але перед тим ОБОВ'ЯЗКОВО встановіть VPN, який ніколи не відключиться сам: https://auto-ddos.notion.site/Cyberghost-f72074a09b224851b2058d559c0b2691 )  
+
+**якщо запускаєте цей скрипт - інші атаки через Python не запускайте, бо при рестарті він вбиває усі процеси з Python (щоб старі атаки не накопичувалися)**
   
 runner.sh - ПОВНІСТЮ АВТООНОВЛЮВАНИЙ (оновлює цілі та себе) bash-скрипт для Linux-машин, що керує [mhddos_proxy](https://github.com/porthole-ascend-cinnamon/mhddos_proxy)  
 Також він автоматично оновлює не лише свій скрипт та цілі, а й сам скрипт mhddos_proxy: https://github.com/alexnest-ua/runner_for_windows/blob/428dac4faff4596a4db2b28a28caae3a32c412ee/runner.sh#L50
