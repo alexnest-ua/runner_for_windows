@@ -11,6 +11,9 @@ ulimit -n 1048576
 #Just in case kill previous copy of mhddos_proxy
 echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Killing all old processes with MHDDoS"
 taskkill -f -im python.exe
+taskkill -f -im python3.8.exe
+taskkill -f -im python3.9.exe
+taskkill -f -im python3.10.exe
 echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old processes with MHDDoS killed\033[0;0m\n"
 # for Docker
 #echo "Kill all useless docker-containers with MHDDoS"
@@ -137,6 +140,9 @@ do
    	#Just in case kill previous copy of mhddos_proxy
    	echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Killing all old processes with MHDDoS"
    	taskkill -f -im python.exe
+	taskkill -f -im python3.8.exe
+	taskkill -f -im python3.9.exe
+	taskkill -f -im python3.10.exe
    	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old processes with MHDDoS killed\033[0;0m\n"
 	
    	no_ddos_sleep="$(shuf -i 2-6 -n 1)m"
