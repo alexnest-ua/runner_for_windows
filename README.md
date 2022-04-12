@@ -68,22 +68,17 @@ bash runner.sh
 bash runner.sh 1 3000 1000
 ```
 
-3. Середня машина(2 CPUs + 2-4 GB RAM):
+3. Середня машина(2-4 CPUs + 2-8 GB RAM):
 ```shell
-bash runner.sh 1 5000 2000
+bash runner.sh 1 4000 2000
 ```
 
-4. Середня+ машина(2-4 CPUs + 4-8 GB RAM):
+4. Нормальна машина(4-8 CPUs + 8-16 GB RAM):
 ```shell
-bash runner.sh 1 6000 2000
+bash runner.sh 2 5000 2000
 ```
 
-5. Нормальна машина(4-8 CPUs + 8-16 GB RAM):
-```shell
-screen -S "runner" bash runner.sh 2 6000 2000
-```
-
-6. Потужна машина(8+ CPUs + 16+ GB RAM):
+5. Потужна машина(9+ CPUs + 16+ GB RAM):
 ```shell
 bash runner.sh all 10000 5000
 ```
@@ -94,9 +89,7 @@ bash runner.sh all 10000 5000
 ```shell
 bash runner.sh 1 3000 1000 --debug
 ```
-
-
-
+  
 * Приклад БЕЗ параметру --debug:
 ![image](https://user-images.githubusercontent.com/74729549/163039792-0ee47ef5-9cc0-4948-95b8-0eacd7acc0fd.png)  
 І після цього наступні 300 секунд НІЧОГО не буде виводитись, але це нормально
