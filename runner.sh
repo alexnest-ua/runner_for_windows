@@ -62,7 +62,7 @@ do
 	fi
 	
 	
-	cd ~/auto_mhddos_alexnest
+	cd ~/runner_for_windows
    	num=$(git pull origin main | grep -c "Already")
    	echo "$num"
    	
@@ -71,7 +71,7 @@ do
 		clear
 		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running up to date auto_mhddos_alexnest"
 	else
-		cd ~/auto_mhddos_alexnest
+		cd ~/runner_for_windows
 		clear
 		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running updated auto_mhddos_alexnest"
 		bash runner.sh $num_of_copies $threads $rpc $debug& # run new downloaded script 
