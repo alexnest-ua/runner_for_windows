@@ -33,6 +33,10 @@ git clone https://github.com/alexnest-ua/runner_for_windows.git
 cd ~/runner_for_windows
 bash setup.sh
 ```  
+можливі наступні повідомлення:  
+![image](https://user-images.githubusercontent.com/74729549/163044158-65de0a4f-9f37-4581-8c81-1a4275f95fc4.png)  
+просто пишіть y та тисніть Enter (або якщо їх немає - нічого не робіть)  
+
 чекаємо поки усе встановиться (на Warning не звертаємо уваги)  
 
 Далі запускаємо атаку:  
