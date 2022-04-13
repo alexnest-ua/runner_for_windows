@@ -59,6 +59,7 @@ do
 
 
 	num0=$(git pull origin main | grep -c "Already")
+	num0=$(git pull origin main | grep -c "Уже")
    	echo "$num0"
    	
    	if ((num0 == 1));
@@ -75,6 +76,7 @@ do
 	
 	cd ~/runner_for_windows
    	num=$(git pull origin main | grep -c "Already")
+	num=$(git pull origin main | grep -c "Уже")
    	echo "$num"
    	
    	if ((num == 1));
