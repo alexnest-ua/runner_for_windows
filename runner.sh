@@ -59,10 +59,9 @@ do
 
 
 	num0=$(git pull origin main | grep -c "Already")
-	num00=$(git pull origin main | grep -c "Уже")
-   	echo "$num0 $num00"
+   	echo "$num0"
    	
-   	if ((num0 == 1 || num00 == 1));
+   	if ((num0 == 1));
    	then	
 		clear
 		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running up to date mhddos_proxy"
@@ -76,10 +75,9 @@ do
 	
 	cd ~/runner_for_windows
    	num=$(git pull origin main | grep -c "Already")
-	num1=$(git pull origin main | grep -c "Уже")
-   	echo "$num $num1"
+   	echo "$num"
    	
-   	if ((num == 1 || num1 == 1));
+   	if ((num == 1));
    	then	
 		clear
 		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running up to date auto_mhddos_alexnest"
