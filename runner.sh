@@ -58,7 +58,7 @@ do
 	cd ~/mhddos_proxy
 
 
-	num0=$(git pull origin main | grep -c "Already")
+	num0=$(git pull origin main | grep -P -c 'Already|Уже')
    	echo "$num0"
    	
    	if ((num0 == 1));
@@ -74,7 +74,7 @@ do
 	
 	
 	cd ~/runner_for_windows
-   	num=$(git pull origin main | grep -c "Already")
+   	num=$(git pull origin main | grep -P -c 'Already|Уже')
    	echo "$num"
    	
    	if ((num == 1));
