@@ -35,6 +35,7 @@ https://github.com/alexnest-ua/runner_for_windows/blob/31ce1eed1adbf91e356a8e591
 Далі просто почерзі вводимо наступні команди, та натискаємо Enter: 
 
 ```shell
+cd ~
 git clone https://github.com/alexnest-ua/runner_for_windows.git
 cd ~/runner_for_windows
 bash setup.sh
