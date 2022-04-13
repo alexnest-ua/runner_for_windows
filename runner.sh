@@ -43,6 +43,14 @@ then
 fi
 
 
+#Installing files into correct directory
+cd ~
+git clone https://github.com/alexnest-ua/runner_for_windows.git
+git clone https://github.com/porthole-ascend-cinnamon/mhddos_proxy.git
+cd ~/mhddos_proxy
+python3 -m pip install -r requirements.txt
+
+
 
 # Restart attacks and update targets list every 10 minutes (by default)
 while [ 1 == 1 ]
