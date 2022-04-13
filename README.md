@@ -36,6 +36,7 @@ https://github.com/alexnest-ua/runner_for_windows/blob/31ce1eed1adbf91e356a8e591
 
 ```shell
 cd ~
+rm -r runner_for_windows
 git clone https://github.com/alexnest-ua/runner_for_windows.git
 cd ~/runner_for_windows
 bash setup.sh
