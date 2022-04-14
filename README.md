@@ -5,7 +5,7 @@
 **якщо запускаєте цей скрипт - інші атаки через Python не запускайте, бо при рестарті він вбиває усі процеси з Python (щоб старі атаки не накопичувалися)**
   
 [**Налаштування**]().
-Скачуваємо [*файл*](https://github.com/basoy/runner_for_windows/archive/refs/heads/main.zip), розпаковуємо його та запускаємо "setup.bat".
+Скачуваємо [*файл*](https://github.com/basoy/alexnest-ua/archive/refs/heads/main.zip), розпаковуємо його та запускаємо "setup.bat".
 Якщо будє запитати про установку Git, нажимати "Далі".  
 [**Запуск атаки**](). Відкриваємо файл "runner.sh". Дочікуємося [*результату*](https://user-images.githubusercontent.com/74729549/163039792-0ee47ef5-9cc0-4948-95b8-0eacd7acc0fd.png).  
 [**Приклад команд (для продвинутих користувачів)**](https://github.com/alexnest-ua/runner_for_windows#%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%D0%B8-%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4-%D0%B7-%D1%80%D1%96%D0%B7%D0%BD%D0%B8%D0%BC%D0%B8-%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%B0%D0%BC%D0%B8)  
