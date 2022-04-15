@@ -68,7 +68,7 @@ do
 	else
 		cd ~/mhddos_proxy
 		clear
-		pip3 install -r requirements.txt
+		python -m pip install -r requirements.txt
 		echo "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running updated mhddos_proxy"
 	fi
 	
