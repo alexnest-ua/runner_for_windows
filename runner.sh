@@ -26,6 +26,7 @@ then
 	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - [\033[0;33m$threads is too LOW amount of threads - attack will be started with 1000 threads\033[0;0m\n"
 	threads=1000
 elif ((threads > 6000));
+then
 	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - [\033[0;33m$threads is too HIGH amount of threads - attack will be started with 6000 threads\033[0;0m\n"
 	threads=6000
 fi
