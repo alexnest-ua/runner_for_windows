@@ -23,13 +23,22 @@ num_of_copies="${1:-1}"
 threads="${2:-1500}"
 if ((threads < 1000));
 then
+	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - [\033[0;33m$threads is too LOW amount of threads - attack will be started with 1000 threads\033[0;0m\n"
 	threads=1000
+elif ((threads > 6000));
+	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - [\033[0;33m$threads is too HIGH amount of threads - attack will be started with 6000 threads\033[0;0m\n"
+	threads=6000
 fi
 
 rpc="${3:-1000}"
 if ((rpc < 1000));
 then
+	echo -e "\n[[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$rpc is too LOW amount of rpc(connections) - attack will be started with 1000 rpc(connections)\033[0;0m\n"
 	rpc=1000
+elif ((rpc > 5000));
+then
+	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - [\033[0;33m$rpc is too HIGH amount of rpc(connections) - attack will be started with 5000 rpc(connections)\033[0;0m\n"
+	rpc=5000
 fi
 
 debug="${4:-}"
