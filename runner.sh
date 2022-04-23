@@ -111,7 +111,7 @@ do
 		#exit #terminate old script
 	fi
 	#
-   	
+   	sleep 3s
 	
    	# Get number of targets in runner_targets. First 5 strings ommited, those are reserved as comments.
    	list_size=$(curl -s https://raw.githubusercontent.com/alexnest-ua/targets/main/targets_linux | cat | grep "^[^#]" | wc -l)
