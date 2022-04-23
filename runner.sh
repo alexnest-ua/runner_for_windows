@@ -17,6 +17,18 @@ echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old proce
 #echo "Docker useless containers killed"
 
 num_of_copies="${1:-1}"
+if (("$num_of_copies" == "all"));
+	then	
+		num_of_copies=3
+	elif ((num_of_copies > 3));
+	then 
+		num_of_copies=3
+	elif ((num_of_copies < 1));
+	then
+		num_of_copies=1
+	else
+		num_of_copies=1
+fi
 threads="${2:-1500}"
 if ((threads < 1000));
 then
