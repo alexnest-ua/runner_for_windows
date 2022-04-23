@@ -46,7 +46,7 @@ then
 	debug="--debug"
 fi
 
-echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mStarting attack...\033[1;0m"
+echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mStarting attack with such parameters: $num_of_copies parallel atacks -t $threads --rpc $rpc $debug...\033[1;0m"
 sleep 7s
 
 
@@ -70,9 +70,10 @@ do
 		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running up to date mhddos_proxy"
 	else
 		cd ~/mhddos_proxy
-		clear
 		python -m pip install -r requirements.txt
+		clear
 		echo "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running updated mhddos_proxy"
+		sleep 3s
 	fi
 	
 	
