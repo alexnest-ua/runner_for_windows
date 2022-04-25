@@ -13,7 +13,7 @@ taskkill -f -im python3.10.exe
 echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old processes with MHDDoS killed\033[0;0m\n"
 
 num_of_copies="${1:-1}"
-if [["$num_of_copies" == "all"]];
+if [[ "$num_of_copies" == "all" ]];
 then	
 	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mAttack will started with 3 parallel attacks (more than 3 is not effective)\033[0;0m\n"
 	num_of_copies=3
