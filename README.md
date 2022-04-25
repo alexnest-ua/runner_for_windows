@@ -12,9 +12,8 @@
 [**Приклад команд**](https://github.com/alexnest-ua/runner_for_windows#%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%D0%B8-%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4-%D0%B7-%D1%80%D1%96%D0%B7%D0%BD%D0%B8%D0%BC%D0%B8-%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%B0%D0%BC%D0%B8)  
 
 runner.sh - ПОВНІСТЮ АВТООНОВЛЮВАНИЙ (оновлює цілі та себе) bash-скрипт для Linux-машин, що керує [mhddos_proxy](https://github.com/porthole-ascend-cinnamon/mhddos_proxy)  
-Також він автоматично оновлює не лише свій скрипт та цілі, а й сам скрипт mhddos_proxy: https://github.com/alexnest-ua/runner_for_windows/blob/428dac4faff4596a4db2b28a28caae3a32c412ee/runner.sh#L50
-Також скрипт імітує роботу людини (вимикає увесь ДДоС на 1-4 (рандомно) хвилин), тому знижується можливість блокування:  
-https://github.com/alexnest-ua/runner_for_windows/blob/31ce1eed1adbf91e356a8e5912d872ef96f6f869/runner.sh#L148
+Також він автоматично оновлює не лише свій скрипт та цілі, а й сам скрипт mhddos_proxy  
+Також скрипт імітує роботу людини (вимикає увесь ДДоС на 1-2 (рандомно) хвилин), тому знижується можливість блокування машини 
 Скрипт розподіляє список машин по різним цілям: https://github.com/alexnest-ua/targets/blob/main/targets_linux  
 
   
@@ -85,12 +84,12 @@ bash runner.sh 1 1500 1000
 
 3. Середня машина(2-4 CPUs + 2-8 GB RAM):
 ```shell
-bash runner.sh 1 3000 2000
+bash runner.sh 1 2000 2000
 ```
 
 4. Нормальна машина(4-8 CPUs + 8-16 GB RAM):
 ```shell
-bash runner.sh 2 5000 2000
+bash runner.sh 2 4000 2000
 ```
 
 5. Потужна машина(9+ CPUs + 16+ GB RAM):
