@@ -60,7 +60,14 @@ then
 	debug="--debug"
 fi
 
-echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mStarting attack with such parameters: $num_of_copies parallel atack(s) -t $threads --rpc $rpc $debug...\033[1;0m"
+vpn="${5:-}"
+if [ "${vpn}" != "--vpn" ] && [ "${vpn}" != "" ];
+then
+	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mStarting with parameter --vpn\033[0;0m\n"
+	vpn="--vpn"
+fi
+
+echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mStarting attack with such parameters: $num_of_copies parallel atack(s) -t $threads --rpc $rpc $debug $vpn...\033[1;0m"
 sleep 7s
 
 
@@ -151,10 +158,10 @@ do
            
 
             echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - full cmd:\n"
-            echo "python runner.py $cmd_line --rpc $rpc -t $threads $debug"
+            echo "python runner.py $cmd_line --rpc $rpc $vpn -t $threads $debug"
             
             cd ~/mhddos_proxy
-            python runner.py $cmd_line --rpc $rpc -t $threads --vpn $debug&
+            python runner.py $cmd_line --rpc $rpc -t $threads $vpn $debug&
             echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[42mAttack started successfully\033[0m\n"
    	done
    	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;35mDDoS is up and Running, next update of targets list in $restart_interval ...\033[1;0m"
