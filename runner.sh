@@ -113,7 +113,7 @@ do
 		clear
 		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running updated auto_mhddos_alexnest"
 		bash runner.sh $num_of_copies $threads $rpc $debug $vpn& # run new downloaded script
-		exit
+		exit 130
 	fi
 	#
    	sleep 3s
