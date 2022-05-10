@@ -1,7 +1,7 @@
 # Опис runner_for_windows
 
 runner.sh - ПОВНІСТЮ АВТООНОВЛЮВАНИЙ (оновлює цілі та себе) bash-скрипт для Windows-машин, що керує [mhddos_proxy](https://github.com/porthole-ascend-cinnamon/mhddos_proxy) та [proxy_finder](https://github.com/porthole-ascend-cinnamon/proxy_finder)  
-Також він автоматично оновлює не лише свій скрипт та цілі, а й сам скрипт mhddos_proxy  
+Також він автоматично оновлює не лише свій скрипт та цілі, а й сам скрипт mhddos_proxy та proxy_finder  
 Також скрипт імітує роботу людини (вимикає увесь ДДоС на 1-2 (рандомно) хвилин), щоб дати машині трохи відпочити
 Скрипт розподіляє список машин по цілям: https://github.com/alexnest-ua/targets/blob/main/targets_linux  
   
