@@ -149,6 +149,9 @@ do
 	fi
 	
    	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Random number(s): " $random_numbers "\n"
+	
+	 cd ~/proxy_finder
+	 python finder.py&
       
    	# Launch multiple mhddos_proxy instances with different targets.
    	for i in $random_numbers
@@ -161,9 +164,8 @@ do
             echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - full cmd:\n"
             echo "python runner.py $cmd_line --rpc $rpc $vpn -t $threads $debug"
             
-	    cd ~/proxy_finder
-	    python finder.py&
-            cd ~/mhddos_proxy
+	    
+	    сd ~/mhddos_proxy
             python runner.py $cmd_line --rpc $rpc -t $threads $vpn $debug&
 	    
 	    
