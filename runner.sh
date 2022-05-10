@@ -1,12 +1,12 @@
 #!/bin/bash
 
 #Just in case kill previous copy of scripts
-echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Killing all old processes with ddos"
+echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Killing all old processes with DDoS and finder"
 taskkill -f -im python.exe
 taskkill -f -im python3.8.exe
 taskkill -f -im python3.9.exe
 taskkill -f -im python3.10.exe
-echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old processes with ddos killed\033[0;0m\n"
+echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old processes with DDoS and finder killed\033[0;0m\n"
 
 #Installing files into correct directory
 echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mInstalling files into correct directories...\033[0;0m\n"
@@ -181,12 +181,12 @@ do
 	clear
    	
    	#Just in case kill previous copy of mhddos_proxy
-   	echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Killing all old processes with ddos"
+   	echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Killing all old processes with DDoS and finder"
    	taskkill -f -im python.exe
 	taskkill -f -im python3.8.exe
 	taskkill -f -im python3.9.exe
 	taskkill -f -im python3.10.exe
-   	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old processes with ddos killed\033[0;0m\n"
+   	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old processes with DDoS and finder killed\033[0;0m\n"
 	
    	no_ddos_sleep="$(shuf -i 1-2 -n 1)m"
    	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[36mSleeping $no_ddos_sleep without DDoS to let your computer cool down...\033[0m\n"
