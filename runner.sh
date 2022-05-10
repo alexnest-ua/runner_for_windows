@@ -123,26 +123,9 @@ do
 	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Number of targets in list: " $list_size "\n"
    	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Taking random targets (just not all) to reduce the load on your CPU(processor)..."
 	
-   	if (("$num_of_copies" == "all"));
-	then	
-		if ((list_size > 3)); # takes not more than 3 targets to one attack (to deffend your machine)
-		then
-			random_numbers=$(shuf -i 1-$list_size -n 3)
-		else
-			random_numbers=$(shuf -i 1-$list_size -n $list_size)
-		fi
-	elif ((num_of_copies > list_size));
+   	if ((num_of_copies > list_size));
 	then 
-		if ((list_size > 3)); # takes not more than 3 targets to one attack (to deffend your machine)
-		then
-			random_numbers=$(shuf -i 1-$list_size -n 3)
-		else
-			random_numbers=$(shuf -i 1-$list_size -n $list_size)
-		fi
-	elif ((num_of_copies < 1));
-	then
-		num_of_copies=1
-		random_numbers=$(shuf -i 1-$list_size -n $num_of_copies)
+		random_numbers=$(shuf -i 1-$list_size -n $list_size)
 	else
 		random_numbers=$(shuf -i 1-$list_size -n $num_of_copies)
 	fi
