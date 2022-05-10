@@ -27,10 +27,6 @@ echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mFiles install
 
 restart_interval="20m"
 
-ulimit -n 1048576
-
-
-
 num_of_copies="${1:-1}"
 if [[ "$num_of_copies" == "all" ]];
 then	
@@ -95,7 +91,6 @@ while [ 1 == 1 ]
 do	
 	cd ~/mhddos_proxy
 
-
 	num0=$(git pull origin main | grep -P -c 'Already|Уже')
    	echo "$num0"
    	
@@ -104,7 +99,6 @@ do
 		clear
 		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running up to date mhddos_proxy"
 	else
-		cd ~/mhddos_proxy
 		clear
 		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running updated mhddos_proxy"
 		sleep 3s
@@ -120,7 +114,6 @@ do
 		clear
 		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running up to date proxy_finder"
 	else
-		cd ~/proxy_finder
 		clear
 		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running updated proxy_finder"
 		sleep 2s
@@ -135,7 +128,6 @@ do
 		clear
 		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running up to date auto_mhddos_alexnest"
 	else
-		cd ~/runner_for_windows
 		clear
 		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Running updated auto_mhddos_alexnest"
 		bash runner.sh $num_of_copies $threads $rpc $debug $vpn& # run new downloaded script
