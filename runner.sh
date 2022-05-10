@@ -136,13 +136,13 @@ do
 	#
    	sleep 3s
 	
+	cd ~/proxy_finder
+	python finder.py&
+	
    	list_size=$(curl -s https://raw.githubusercontent.com/alexnest-ua/targets/main/targets_linux | cat | grep "^[^#]" | wc -l)
 	
 	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Number of targets in list: " $list_size "\n"
    	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Taking random targets (just not all) to reduce the load on your CPU(processor)..."
-	
-	cd ~/proxy_finder
-	python finder.py&
 	
    	if ((num_of_copies > list_size));
 	then 
