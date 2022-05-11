@@ -91,7 +91,7 @@ while [ 1 == 1 ]
 do	
 	cd ~/mhddos_proxy
 
-	num0=$(git pull origin main | grep -E -c 'Already|Уже')
+	num0=$(git pull origin main | grep -E -c 'Already|Уже|Вже')
    	echo "$num0"
    	
    	if ((num0 == 1));
@@ -107,7 +107,7 @@ do
 	
 	cd ~/proxy_finder	
 
-	num0=$(git pull origin main | grep -E -c 'Already|Уже')
+	num0=$(git pull origin main | grep -E -c 'Already|Уже|Вже')
    	echo "$num0"
    	
    	if ((num0 == 1));
@@ -122,7 +122,7 @@ do
 	fi
 	
 	cd ~/runner_for_windows
-   	num=$(git pull origin main | grep -E -c 'Already|Уже')
+   	num=$(git pull origin main | grep -E -c 'Already|Уже|Вже')
    	echo "$num"
    	
    	if ((num == 1));
