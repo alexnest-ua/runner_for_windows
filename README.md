@@ -58,7 +58,7 @@ curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/r
 ### Приклади команд з різними параметрами:
 перед уведенням команд обов'язково треба відкрити Git Bash та зробити ось це:
 ```shell
-cd ~/runner_for_windows
+cd ~
 ```
 1. ***Для лінивих*** (буде обрано за замовчуванням: num_of_copies=1, threads=1500 rpc=1000 debug="" vpn=""(1 ціль, 1500 потоків, 1000 запитів на проксі перед відправкою на ціль, без дебагу, без атаки через ваш ІР)
 ```shell
