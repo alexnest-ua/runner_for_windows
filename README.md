@@ -39,20 +39,16 @@ runner.sh - ПОВНІСТЮ АВТООНОВЛЮВАНИЙ (оновлює ці
 
 
 ## Запуск атаки:  
-**ПРИ РЕСТАРТІ КОМП'ЮТЕРА / АВТО-СКРИПТА СПЕРШУ ОБОВ'ЯЗКОВО ПОТРІБНО ВІДКРИТИ САМЕ Git Bash і ввести наступні команди:**
+**ПРИ РЕСТАРТІ КОМП'ЮТЕРА / АВТО-СКРИПТА СПЕРШУ ОБОВ'ЯЗКОВО ПОТРІБНО ВІДКРИТИ САМЕ Git Bash і ввести наступну команду, яка саме все завантажить:**
 ```shell
-cd ~
-rm -rf runner_for_windows
-git clone https://github.com/alexnest-ua/runner_for_windows
-cd ~/runner_for_windows
-bash runner.sh
+curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh
 ```
 
 **Далі можна просто ЗГОРНУТИ вікно і воно буде працювати нескінченно в фоні**  
 ***щоб зупинити - просто закрийте вікно з атакою***
 
 **!!!УВАГА!!!** runner.sh підтримує наступні параметри (САМЕ У ТАКОМУ ПОРЯДКУ ТА ЛИШЕ У ТАКІЙ КІЛЬКОСТІ(мінімум 3)), але можно і без них:  
-runner.sh [num_of_copies] [threads] [rpc] [debug] [vpn]  
+`curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh` [num_of_copies] [threads] [rpc] [debug] [vpn]  
 - num_of_copies - кількість атакуємих за один прохід цілей (але не більше 3-ох)
 - threads - кількість потоків (але не менше 1000, та не більше 5000)
 - rpc - кількість запитів на проксі перед відправкою на ціль (але не менше 1000, та не більше 2500)
@@ -66,36 +62,36 @@ cd ~/runner_for_windows
 ```
 1. ***Для лінивих*** (буде обрано за замовчуванням: num_of_copies=1, threads=1500 rpc=1000 debug="" vpn=""(1 ціль, 1500 потоків, 1000 запитів на проксі перед відправкою на ціль, без дебагу, без атаки через ваш ІР)
 ```shell
-bash runner.sh 
+curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh
 ```
   
 **CPUs** - це ядра вашого процесора - зазвичай ядер у два рази менше ніж потоків 
   
 2. Слаба машина(1 CPU + 1-2 GB RAM), саме ці параметри за замовчуванням:
 ```shell
-bash runner.sh 1 1500 1000
+curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 1500 1000
 ```
 
 3. Середня машина(2-4 CPUs + 2-8 GB RAM):
 ```shell
-bash runner.sh 1 2000 2000
+curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 2000 2000
 ```
 
 4. Нормальна машина(4-8 CPUs + 8-16 GB RAM):
 ```shell
-bash runner.sh 2 4000 2000
+curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 2 4000 2000
 ```
 
 5. Потужна машина(9+ CPUs + 16+ GB RAM):
 ```shell
-bash runner.sh all 5000 2500
+curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh all 5000 2500
 ```
 
   
 *також ви можете змінювати параметри на будь-які інші значення, але я рекомендую саме ці.*  
 *також можете додавати **4-тим** параметром --debug, що слідкувати за ходом атаки, та **5-тим** параметром --vpn, щоб атакувати ще й через свій ІР разом з проксі, наприклад:*  
 ```shell
-bash runner.sh 1 1500 1000 --debug --vpn
+curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 1500 1000 --debug --vpn
 ```
   
 * Приклад БЕЗ параметру --debug та без --vpn:
@@ -107,9 +103,9 @@ bash runner.sh 1 1500 1000 --debug --vpn
 Далі кожні 5 хвилин воно буде оновлювати список проксі, а кожні 20 хвилин - цілі атаки
 
 
-* щоб Вбити процес - відкривайте вікно де він запущений та натискайте Ctrl+C (або якщо не спрацює - хрестик):  
+* щоб Вбити процес - відкривайте вікно де він запущений та натискайте Ctrl+C (або якщо не спрацює - хрестик)  
 
-УВАГА!!! Скрипт при рестарті (кожні 20 хвилин) вбиває запущені скрипти саме з mhddos_proxy, тому якщо запускаєте цей скрипт на Windows-машині, то свої атаки mhddos_proxy запускайте лише через docker, а краще на іншій машині [напряму](https://t.me/ddos_separ/990)  
+УВАГА!!! Скрипт при рестарті (кожні 20 хвилин) вбиває запущені скрипти саме з mhddos_proxy, тому якщо запускаєте цей скрипт на Windows-машині, то свої атаки mhddos_proxy запускайте на іншій машині [напряму](https://t.me/ddos_separ/990)  
 
 
 ## Список цілей  
