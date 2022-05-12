@@ -61,10 +61,8 @@ curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/r
 - vpn - використання вашого ІР у атаці разом з проксі
   
 ### Приклади команд з різними параметрами:
-перед уведенням команд обов'язково треба відкрити Git Bash та зробити ось це:
-```shell
-cd ~
-```  
+  
+Команди обовязково потрібно вводити в програмі Git Bash  
   
 * У всіх варіантах буде автоматично запущено паралельно наш [proxy_finder](https://github.com/porthole-ascend-cinnamon/proxy_finder)  
   
