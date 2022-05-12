@@ -11,6 +11,7 @@ echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old proce
 #Installing files into correct directory
 echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mInstalling files into correct directories...\033[0;0m\n"
 sleep 3
+python -m pip install --upgrade pip
 cd ~
 rm -rf mhddos_proxy
 rm -rf runner_for_windows
@@ -18,7 +19,6 @@ rm -rf proxy_finder
 git clone https://github.com/alexnest-ua/runner_for_windows.git
 git clone https://github.com/porthole-ascend-cinnamon/mhddos_proxy.git
 git clone https://github.com/porthole-ascend-cinnamon/proxy_finder.git
-pip3 install --upgrade pip
 cd ~/mhddos_proxy
 python -m pip install -r requirements.txt
 cd ~/proxy_finder
