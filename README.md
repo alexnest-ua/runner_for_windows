@@ -7,15 +7,17 @@ runner.sh - ПОВНІСТЮ АВТООНОВЛЮВАНИЙ (оновлює ці
   
 [**Варіант для Mac**](https://github.com/alexnest-ua/auto_mhddos_mac)  
 [**Варіант для Linux**](https://github.com/alexnest-ua/auto_mhddos_alexnest/tree/main)  
-[**Варіант для Docker**](https://github.com/alexnest-ua/auto_mhddos_alexnest/tree/docker)    
+[**Варіант для Docker**](https://github.com/alexnest-ua/auto_mhddos_alexnest/tree/docker)   
+[**Варіант для Android**](https://telegra.ph/mhddos-proxy-for-Android-with-Termux-03-31)   
+  
   
 можете запускати цей скрипт на увесь день та йти по своїм справам - він сам буде брати актуальні цілі (але перед тим ОБОВ'ЯЗКОВО встановіть VPN, який ніколи не відключиться сам: https://auto-ddos.notion.site/Cyberghost-f72074a09b224851b2058d559c0b2691 )  
 
 **якщо запускаєте цей скрипт - інші атаки через Python не запускайте, бо при рестарті він вбиває усі процеси з Python (щоб старі атаки не накопичувалися)**
   
-[**Налаштування**](https://github.com/alexnest-ua/runner_for_windows#%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B2%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F)  
-[**Запуск атаки**](https://github.com/alexnest-ua/runner_for_windows#%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D0%B0%D1%82%D0%B0%D0%BA%D0%B8)  
-[**Приклад команд**](https://github.com/alexnest-ua/runner_for_windows#%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%D0%B8-%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4-%D0%B7-%D1%80%D1%96%D0%B7%D0%BD%D0%B8%D0%BC%D0%B8-%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%B0%D0%BC%D0%B8)  
+[**Налаштування**](#%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B2%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F)  
+[**Запуск атаки**](#%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D0%B0%D1%82%D0%B0%D0%BA%D0%B8)  
+[**Приклади команд з --debug та без**](#%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%D0%B8-%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4-%D0%B7-%D1%80%D1%96%D0%B7%D0%BD%D0%B8%D0%BC%D0%B8-%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%B0%D0%BC%D0%B8)  
 
 
 
@@ -43,9 +45,10 @@ runner.sh - ПОВНІСТЮ АВТООНОВЛЮВАНИЙ (оновлює ці
 ```shell
 curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh
 ```
+Далі кожні 5 хвилин воно буде оновлювати список проксі, а кожні 20 хвилин - цілі атаки та перевіряти наявність оновлення (та встановлювати його якщо воно є)  
 
 **Далі можна просто ЗГОРНУТИ вікно і воно буде працювати нескінченно в фоні**  
-***щоб зупинити - просто закрийте вікно з атакою***
+***щоб зупинити - просто закрийте вікно з атакою***  
 
 **!!!УВАГА!!!** runner.sh підтримує наступні параметри (САМЕ У ТАКОМУ ПОРЯДКУ ТА ЛИШЕ У ТАКІЙ КІЛЬКОСТІ(мінімум 3)), але можно і без них:  
 `curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh` [num_of_copies] [threads] [rpc] [debug] [vpn]  
@@ -94,13 +97,16 @@ curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/r
 curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 1500 1000 --debug --vpn
 ```
   
-* Приклад БЕЗ параметру --debug та без --vpn:
-![image](https://user-images.githubusercontent.com/74729549/165539242-2980e45c-227a-45b8-bece-59c52af4e106.png)
-І після цього наступні 300 секунд НІЧОГО не буде виводитись, але це нормально
-* Приклад З параметром --debug та З --vpn:
-![image](https://user-images.githubusercontent.com/74729549/165539498-07073d5e-a9c0-4d32-8fb4-54aa4aaba1ca.png)
+* Приклад **БЕЗ** параметру --debug:  
+![image](https://user-images.githubusercontent.com/74729549/168058965-1116eb6a-6fc4-45d5-b2a8-eb7f5529ab87.png)  
+***наступні 5 хвилин буде виводитись лише інформація від proxy_finder про пошук проксі, але атака теж йде паралельно!***  
+* Приклад **З** параметром --debug:  
+![image](https://user-images.githubusercontent.com/74729549/168060170-b33ef233-3563-4cab-9439-55036d332a41.png)  
+
+
   
-Далі кожні 5 хвилин воно буде оновлювати список проксі, а кожні 20 хвилин - цілі атаки
+Далі кожні 5 хвилин воно буде оновлювати список проксі, а кожні 20 хвилин - цілі атаки та перевіряти наявність оновлення (та встановлювати його якщо воно є)  
+
 
 
 * щоб Вбити процес - відкривайте вікно де він запущений та натискайте Ctrl+C (або якщо не спрацює - хрестик)  
