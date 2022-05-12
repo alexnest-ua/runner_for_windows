@@ -100,14 +100,14 @@ curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/r
 * Приклад **БЕЗ** параметру --debug:  
 ![image](https://user-images.githubusercontent.com/74729549/168058965-1116eb6a-6fc4-45d5-b2a8-eb7f5529ab87.png)  
 ***наступні 5 хвилин буде виводитись лише інформація від proxy_finder про пошук проксі, але атака теж йде паралельно!***  
-* Приклад **З** параметром --debug:  
-![image](https://user-images.githubusercontent.com/74729549/168060170-b33ef233-3563-4cab-9439-55036d332a41.png)  
-
-
+* Приклад **З** параметрами --debug та --vpn:  
+![image](https://user-images.githubusercontent.com/74729549/168068441-0be60ba6-49c7-41de-a89c-c50410a50fef.png)  
+  
+  
   
 Далі кожні 5 хвилин воно буде оновлювати список проксі, а кожні 20 хвилин - цілі атаки та перевіряти наявність оновлення (та встановлювати його якщо воно є)  
-
-
+  
+  
 
 * ***щоб зупинити процес - натисніть Ctrl+C (або якщо не спрацює просто закрийте вікно з атакою)***    
 
