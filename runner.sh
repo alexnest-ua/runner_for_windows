@@ -11,6 +11,7 @@ echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;35mAll old proce
 #Installing files into correct directory
 echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mInstalling files into correct directories...\033[0;0m\n"
 sleep 3
+ulimit -Hn 16384
 python -m pip install --upgrade pip
 cd ~
 rm -rf mhddos_proxy
