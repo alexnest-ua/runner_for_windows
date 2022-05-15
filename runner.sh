@@ -134,10 +134,10 @@ then
 	fi
 
 	
-	if ((num_of_copies > 2));
+	if ((num_of_copies > 1));
 	then 
-		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only $proc_num CPUs, so attack will be started only with 2 parallel attack\033[0;0m\n"
-		num_of_copies=2
+		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only $proc_num CPUs, so attack will be started only with 1 parallel attack\033[0;0m\n"
+		num_of_copies=1
 	fi
 fi
 
