@@ -262,7 +262,7 @@ do
             		echo "python3 runner.py $cmd_line --rpc $rpc -t $threads $vpn $debug"
             
             		cd ~/mhddos_proxy
-            		python3 runner.py $cmd_line --rpc $rpc -t $threads $vpn $debug&
+            		python runner.py $cmd_line --rpc $rpc -t $threads $vpn $debug&
 	    		sleep 10s
 			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[42mAttack started successfully\033[0m\n"
 		done
@@ -271,13 +271,13 @@ do
 		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mStarting proxy_finder...\033[1;0m"
 		sleep 2s
 		cd ~/proxy_finder
-		python3 finder.py&
+		python finder.py&
 	else
 		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only 1 CPU, so for next 20 minutes will be started only proxy_finder (without mhddos_proxy)\033[0;0m\n"
 		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mStarting proxy_finder...\033[1;0m"
 		sleep 3s
 		cd ~/proxy_finder
-		python3 finder.py --threads $threads&
+		python finder.py --threads $threads&
 	fi
 	
    	sleep $restart_interval
