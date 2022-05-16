@@ -80,7 +80,7 @@ curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/r
 
 3. Середня машина(2-4 CPUs):
 ```shell
-curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 5000 2000
+curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 3500 2000
 ```
 
 4. Нормальна машина(4-8 CPUs):
