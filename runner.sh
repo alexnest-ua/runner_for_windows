@@ -68,7 +68,7 @@ then
 	debug="--debug"
 fi
 
-if (($debug == "EN"));
+if [[ $debug == "EN" ]];
 then
 	debug="--lang EN"
 fi
