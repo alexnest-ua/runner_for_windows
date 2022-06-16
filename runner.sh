@@ -68,6 +68,11 @@ then
 	debug="--debug"
 fi
 
+if (($debug == "EN"));
+then
+	debug="--lang EN"
+fi
+
 vpn="${5:-}"
 if [ "${vpn}" != "--vpn" ] && [ "${vpn}" != "" ];
 then
