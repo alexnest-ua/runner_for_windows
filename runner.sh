@@ -62,7 +62,7 @@ fi
 rpc="${3:-1000}"
 
 debug="${4:-}"
-if [ "${debug}" != "--debug" ] && [ "${debug}" != "" ] && [ "${debug}" != "--vpn" ];
+if [ "${debug}" != "--debug" ] && [ "${debug}" != "" ] && [ "${debug}" != "--vpn" ] && [ "${debug}" != "--lang EN" ];
 then
 	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mStarting with parameter --debug (--table is not supported in our script)\033[0;0m\n"
 	debug="--debug"
@@ -74,7 +74,6 @@ then
 	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mStarting with parameter --vpn\033[0;0m\n"
 	vpn="--vpn"
 fi
-
 
 
 
