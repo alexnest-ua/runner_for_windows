@@ -83,15 +83,15 @@ while [ 1 == 1 ]
 do	
 
 	proc_num=$(nproc --all)
-	if ((proc_num < 2));
+	if ((proc_num < 4));
 	then
-		if ((threads > 5000));
+		if ((threads > 3500));
 		then
-			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$threads is too HIGH amount of threads for 1 CPU - attack will be started with 5000 async threads\033[0;0m\n"
-			threads=5000
+			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$threads is too HIGH amount of threads for $proc_num CPU(s) - attack will be started with 3500 async threads\033[0;0m\n"
+			threads=3500
 		elif ((threads < 2500));
 		then
-			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$threads is too LOW amount of threads for 1 CPU - attack will be started with 2500 async threads\033[0;0m\n"
+			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$threads is too LOW amount of threads for $proc_num CPU(s) - attack will be started with 2500 async threads\033[0;0m\n"
 			threads=2500
 		fi
 		
@@ -101,16 +101,16 @@ do
 			num_of_copies=1
 		fi
 	
-	elif ((proc_num >= 2 && proc_num < 4));
+	elif ((proc_num >= 4 && proc_num < 6));
 	then
-		if ((threads > 10000));
+		if ((threads > 6000));
 		then
-			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$threads is too HIGH amount of threads for $proc_num CPUs - attack will be started with 10000 async threads\033[0;0m\n"
-			threads=10000
-		elif ((threads < 6000));
-		then
-			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$threads is too LOW amount of threads for $proc_num CPUs - attack will be started with 6000 async threads\033[0;0m\n"
+			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$threads is too HIGH amount of threads for $proc_num CPUs - attack will be started with 6000 async threads\033[0;0m\n"
 			threads=6000
+		elif ((threads < 4000));
+		then
+			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33m$threads is too LOW amount of threads for $proc_num CPUs - attack will be started with 4000 async threads\033[0;0m\n"
+			threads=4000
 		fi
 	
 	
@@ -120,7 +120,7 @@ do
 			num_of_copies=1
 		fi
 
-	elif ((proc_num >= 4));
+	elif ((proc_num >= 6));
 	then
 		if ((threads < 7500));
 		then
@@ -130,7 +130,7 @@ do
 		
 		if ((num_of_copies < 2));
 		then 
-			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have $proc_num CPUs, so attack will be started with 2 parallel attack(s)\033[0;0m\n"
+			echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[0;33mYou have enough $proc_num CPUs, so attack will be started with 2 parallel attack(s)\033[0;0m\n"
 			num_of_copies=2
 		fi
 
