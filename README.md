@@ -64,7 +64,6 @@ curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/r
   
 Команди обовязково потрібно вводити в програмі Git Bash  
   
-* У всіх варіантах буде автоматично запущено паралельно наш [proxy_finder](https://github.com/porthole-ascend-cinnamon/proxy_finder)  
   
 1. ***Для лінивих*** (буде запущено з параметрами за замовчуванням в залежності від кількості ядер вашого ПК)  
 ```shell
