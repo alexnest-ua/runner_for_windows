@@ -154,7 +154,7 @@ do
 	fi
 	
 	
-	cd ~/auto_mhddos_alexnest
+	cd ~/runner_for_windows
    	num=$(git pull origin main | grep -E -c 'Already|Уже|Вже')
    	echo "$num"   	
    	if ((num == 1));
