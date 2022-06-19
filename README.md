@@ -95,9 +95,13 @@ curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/r
   
 *також ви можете змінювати параметри на будь-які інші значення, але я рекомендую саме ці.*  
   
-*також можете додавати **4-тим** параметром --debug, що слідкувати за ходом атаки, та **5-тим** параметром --vpn, щоб атакувати ще й через свій ІР разом з проксі, наприклад:*  
+* також можете додавати **4-тим** параметром --debug, що слідкувати за ходом атаки, та **5-тим** параметром --vpn, щоб атакувати ще й через свій ІР разом з проксі, наприклад:  
 ```shell
 curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 2500 1000 --debug --vpn
+```
+* або якщо хочете лише `--vpn` без `--debug`, можна запустити ось так:
+```shell
+curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 2500 1000 --vpn
 ```
   
 * Приклад **БЕЗ** параметру --debug:  
