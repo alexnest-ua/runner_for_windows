@@ -1,6 +1,6 @@
 # Опис runner_for_windows
 
-runner.sh - ПОВНІСТЮ АВТООНОВЛЮВАНИЙ (оновлює цілі та себе) bash-скрипт для Windows-машин, що керує [mhddos_proxy](https://github.com/porthole-ascend-cinnamon/mhddos_proxy)  
+runner.sh - ПОВНІСТЮ АВТООНОВЛЮВАНИЙ (оновлює цілі та себе) bash-скрипт для Windows-машин, що керує [mhddos_proxy](https://github.com/porthole-ascend-cinnamon/mhddos_proxy_releases)  
 Також скрипт імітує роботу людини (вимикає увесь ДДоС на 1-2 (рандомно) хвилин), щоб дати машині трохи відпочити
   
 [**Варіант для Mac**](https://github.com/alexnest-ua/auto_mhddos_mac)  
@@ -17,8 +17,8 @@ runner.sh - ПОВНІСТЮ АВТООНОВЛЮВАНИЙ (оновлює ці
 [**Запуск атаки**](#%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D0%B0%D1%82%D0%B0%D0%BA%D0%B8)  
 
   
-Канал, де координуються цілі: https://t.me/ddos_separ (звідти і беруться сюди цілі, тому якщо у вас на Windows запущено цей скрипт - то можете відповчивати, він все зробить за вас)  
-чат де ви можете задати свої питання: https://t.me/+8swDHSe_ROI5MmJi  
+Канал, де координуються цілі: https://t.me/itarmyofukraine2022 (звідти і беруться сюди цілі, тому якщо у вас на Windows запущено цей скрипт - то можете відповчивати, він все зробить за вас)  
+чат де ви можете задати свої питання: https://t.me/+H6PnjkydZX0xNDky 
 також можете писати мені в особисті у телеграм, я завжди усім відповідаю: @brainqdead
   
 Туторіал по створенню автоматичних та автономних Linux-серверів: https://auto-ddos.notion.site/dd91326ed30140208383ffedd0f13e5c  
